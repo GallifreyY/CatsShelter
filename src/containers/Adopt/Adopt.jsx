@@ -43,9 +43,9 @@ const Adopt = props => {
                       <li>You must live within 50 miles of Cary, NC.</li>
                     </ul>
                     <p>To apply to become an adopter, fill out our online adoption application. A Cat Angels adoption counselor will contact you with 1-2 days of your submission. Please be patient as we are all volunteers. If you do not hear back after 2 days, please email us as a technical problem may have prevented delivery of your application. </p>
-                    {/* <a href="https://secure.lglforms.com/form_engine/s/rwQeucie5SeXQh7qVoXVPQ"> */}
-                        <Button disabled btnColor="Button-white">adoption application</Button>
-                    {/* </a> */}
+                    <a href="https://secure.lglforms.com/form_engine/s/rwQeucie5SeXQh7qVoXVPQ">
+                        <Button btnColor="Button-white">adoption application</Button>
+                    </a>
                 </div>
                 <div className="Adopt-img">
                     <Img src={imgCat1} imgType="Img-small-only" alt="image of a cat" />
