@@ -3,8 +3,7 @@ import React from "react";
 import "./Address.css";
 
 const Address = props => {
-    const catAngelsGoogleMaps = "https://www.google.com/maps/place/Cat+Angels+Pet+Adoptions+Inc/@35.8014009,-78.7868544,17z/data=!3m1!4b1!4m5!3m4!1s0x89acf2be379cba99:0x25f02e6fce1d6be5!8m2!3d35.8013966!4d-78.7846657";
-
+    
     return (
         <div className="Address">
             <h4>Cat Angels Pet Adoptions</h4>
