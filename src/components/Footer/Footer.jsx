@@ -3,7 +3,6 @@ import React from "react";
 import Address from "./Address/Address";
 import Hours from "./Hours/Hours";
 import SocialMedia from "./SocialMedia/SocialMedia";
-import Copyright from "./Copyright/Copyright";
 import "./Footer.css";
 
 const Footer = props => {
@@ -13,10 +12,7 @@ const Footer = props => {
                 <Address />
                 <SocialMedia />
                 <Hours />
-            </div>
-            <div className="Copyright">
-                <Copyright />
-            </div>   
+            </div>  
         </div>
         
     );

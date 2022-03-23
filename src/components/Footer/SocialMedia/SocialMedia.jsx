@@ -12,10 +12,10 @@ const SocialMedia = props => {
     return (
         <div className="SocialMedia"> 
             
-            <a href="https://www.facebook.com/CatAngelsNC/"><img src={facebookLogo} alt="facebook icon" /></a>
-            <a href="https://www.instagram.com/catangelsnc/?hl=en"><img src={instagramLogo} alt="instagram icon" /></a>
-            <a href="https://twitter.com/catangelsnc?lang=en"><img src={twitterLogo} alt="twitter icon" /></a>
-            <a href="https://www.youtube.com/channel/UCR3vaY3C-I31rRYK8CAhbqg"><img src={youtubeLogo} alt="youtube icon" /></a>
+            <a href="https://www.facebook.com/"><img src={facebookLogo} alt="facebook icon" /></a>
+            <a href="https://www.instagram.com/"><img src={instagramLogo} alt="instagram icon" /></a>
+            <a href="https://twitter.com/"><img src={twitterLogo} alt="twitter icon" /></a>
+            <a href="https://www.youtube.com/"><img src={youtubeLogo} alt="youtube icon" /></a>
         </div>
     );
 };
