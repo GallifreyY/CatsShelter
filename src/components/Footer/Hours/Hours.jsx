@@ -7,13 +7,10 @@ const Hours = props => {
         <div className="Hours">
             <h4>Adoption Hours</h4>
             <section>
-                Thursday 3 - 6pm
+                Monday to Friday 3 - 9pm
             </section>
             <section>
-                Friday 3 - 6pm
-            </section>
-            <section>
-                Saturday 1 - 5pm
+                Saturday 3 - 5pm
             </section>
             <section className="Hours-adnotation">
                 Other times by appointment
