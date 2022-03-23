@@ -1,0 +1,22 @@
+.Adopt-text {
+    width: 100%;
+}
+
+.Adopt-text_small {
+    font-size: 0.7rem;
+    font-style: italic;
+    text-align: right;
+}
+
+.Adopt-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+@media (min-width: 800px) {
+    .Adopt-text {
+        width: 50%;
+    }
+}

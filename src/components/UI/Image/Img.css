@@ -1,0 +1,31 @@
+.Img {
+    border-radius: 50%; 
+    margin: 1rem auto;
+    border: 3px solid white;
+}
+
+.Img-small-only {
+    width: 300px;
+    height: 300px;
+}
+
+.Img-sizing {
+    width: 312px;
+    height: 312px;
+}
+.Img-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 800px) {
+    .Img-sizing {
+        width: 441px;
+        height: 441px;
+    }
+    
+    .Img-flex {
+        flex-direction: row;
+    }
+}

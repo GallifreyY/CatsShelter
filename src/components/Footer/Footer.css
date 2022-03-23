@@ -1,0 +1,27 @@
+.Footer {
+    display: flex;
+    flex-direction: column; 
+    line-height: 1.5;
+}
+
+.Footer h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.Footer-components {
+    background: #142850;
+    color: white;
+    padding: 1rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 800px) {
+    .Footer-components {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}

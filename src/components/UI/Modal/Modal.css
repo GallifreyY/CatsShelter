@@ -1,0 +1,19 @@
+.Modal {
+    position: fixed;
+    z-index: 500;
+    background-color: white;
+    width: 80%;
+    border-radius: 8px;
+    left: 10%;
+    transition: all 0.3s ease-out;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+    text-align: justify;
+}
+
+@media (min-width: 800px) {
+    .Modal {
+        width: 500px;
+        left: calc(50% - 250px);
+    }
+}

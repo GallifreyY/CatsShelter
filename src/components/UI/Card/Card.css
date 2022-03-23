@@ -1,0 +1,46 @@
+.Card {
+    padding: 1.5rem 0;
+    margin: 0 auto;
+}
+
+.Card-title {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #00a8cc;
+    background: #00a8cc;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.1rem;
+}
+
+.Card-title:hover {
+    color: white;
+    border-color: #142850; 
+    background-color: #142850;   
+}
+
+.Card-text {
+    text-align: justify;
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+@media (min-width: 800px) {
+    .Card {
+        width: 30%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .Card-text {
+        padding: 0.5rem 3rem;
+        margin: 0 auto;
+    }
+}

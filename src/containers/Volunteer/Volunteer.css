@@ -1,0 +1,15 @@
+.Volunteer-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+@media (min-width: 800px) {
+    .Volunteer-text {
+        width: 50%;
+    }
+    .Volunteer-img {
+        width: 50%;
+        
+    }
+}

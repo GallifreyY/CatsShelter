@@ -1,0 +1,10 @@
+.Copyright {
+    font-size: 0.6rem;
+    width: 100%;
+    color: white;
+    background-color: #142850;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    
+}

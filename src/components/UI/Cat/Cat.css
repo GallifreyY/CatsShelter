@@ -1,0 +1,58 @@
+.Cat {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 1rem auto;
+    border: 3px solid white;
+    border-radius: 8px;
+}
+
+.Cat-img {
+    display: flex;
+}
+
+.Cat-img img {
+    border-radius: 50%; 
+    margin: 1rem auto;
+    border: 3px solid white;
+    width: 200px;
+    height: 200px;
+}
+
+.Cat-info {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    line-height: 1.5;
+    
+}
+
+.Cat-info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.Cat-description {
+    margin: auto;
+}
+
+@media (min-width: 500px) {
+
+    .Cat {
+        width: 370px;
+        height: 570px;
+        padding: 2rem;
+    }
+
+    .Cat-img img {
+        margin: 0 auto;
+    }
+    
+    .Cat-info-list {
+        margin: 0.5rem 0.5rem;
+    
+    }
+  
+    
+}

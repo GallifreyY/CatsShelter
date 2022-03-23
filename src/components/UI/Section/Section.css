@@ -1,0 +1,43 @@
+.Section {
+    padding: 1rem 2rem;
+    width: 100%;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.Section h1 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.White {
+    background-color: white;
+    color: #142850;
+}
+
+.Blue {
+    background-color: rgba(12, 122, 146, 0.9);
+    color: white;
+}
+
+.Flex {
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media (min-width: 800px) {
+    .Section {
+        padding: 3rem 2rem;
+    }
+    .White {
+        padding: 7rem 2rem;
+    }
+
+    .Flex {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+}

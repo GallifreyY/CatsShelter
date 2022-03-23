@@ -1,0 +1,34 @@
+.Home-quote {
+  padding: 2rem 0;
+  margin: 0;
+  width: 100%;
+  text-align: justify;
+}
+
+.Home-quote p {
+  font-size: 0.7rem;
+  font-style: italic;
+  text-align: right;
+}
+
+.Home-img {
+  box-sizing: border-box;
+  width: fit-content;
+  margin: auto;
+}
+
+@media (max-width: 40rem) {
+    iframe {
+      width: 100%;
+    }
+  }
+
+@media (min-width: 800px) {
+  .Home-quote {
+    margin: auto;
+    width: 40%;
+  }
+  .Home-text {
+    width: 50%;
+  }
+}
