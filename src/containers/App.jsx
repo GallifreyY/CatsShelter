@@ -8,7 +8,6 @@ import Home from "./Home/Home";
 import Volunteer from "./Volunteer/Volunteer";
 import Adopt from "./Adopt/Adopt";
 import WaitList from "./WaitList/WaitList";
-import TriftShop from "./TriftShop/TriftShop";
 import Donate from "./Donate/Donate";
 import Animals from "./Animals/Animals";
 
@@ -21,7 +20,6 @@ const App = props => {
                 <Route path="/volunteer" component={Volunteer} />
                 <Route path="/adopt" component={Adopt} />
                 <Route path="/waitList" component={WaitList} />
-                <Route path="/shop" component={TriftShop} />
                 <Route path="/donate" component={Donate} />
                 <Route path="/animals" component={Animals} />
             </Switch>
