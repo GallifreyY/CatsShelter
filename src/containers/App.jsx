@@ -10,6 +10,8 @@ import Adopt from "./Adopt/Adopt";
 import WaitList from "./WaitList/WaitList";
 import Donate from "./Donate/Donate";
 import Animals from "./Animals/Animals";
+import volunteerApplication from "./Application/volunteerApplication"
+import adoptionApplication from "./Application/adoptionApplication"
 
 const App = props => {
     return (
@@ -18,7 +20,9 @@ const App = props => {
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/volunteer" component={Volunteer} />
+                <Route path="/a_application" component={adoptionApplication} />
                 <Route path="/adopt" component={Adopt} />
+                <Route path="/v_application" component={volunteerApplication} />
                 <Route path="/waitList" component={WaitList} />
                 <Route path="/donate" component={Donate} />
                 <Route path="/animals" component={Animals} />

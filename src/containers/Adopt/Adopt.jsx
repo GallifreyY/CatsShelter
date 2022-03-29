@@ -8,6 +8,7 @@ import Img from "../../components/UI/Image/Img";
 import imgCat1 from "../../assets/imgs/web-cats/vol_cat1.jpg";
 import imgCat2 from "../../assets/imgs/web-cats/vol_cat2.jpeg";
 import imgCat3 from "../../assets/imgs/web-cats/vol_cat3.jpg";
+import {Link } from "react-router-dom";
 
 const Adopt = props => {
     return (
@@ -41,9 +42,9 @@ const Adopt = props => {
                         We will contact you with 1-2 days of your submission. 
                         Please be patient as we are all volunteers. 
                         If you do not hear back after 2 days, please email us as a technical problem may have prevented delivery of your application. </p>
-                    <a href="https://secure.lglforms.com/form_engine/s/rwQeucie5SeXQh7qVoXVPQ">
-                        <Button disabled btnColor="Button-white">adoption application</Button>
-                    </a>
+                    <Link to ='/a_application' >
+                        <Button btnColor="Button-white">adoption application</Button>
+                    </Link>
                 </div>
                 <div className="Adopt-img">
                     <Img src={imgCat1} imgType="Img-small-only" alt="image of a cat" />
