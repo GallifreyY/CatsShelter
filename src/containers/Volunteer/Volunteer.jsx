@@ -6,6 +6,7 @@ import Aux from "../../hoc/Auxiliary/Auxiliary";
 import Img from "../../components/UI/Image/Img";
 import AdoptImg from "../../assets/imgs/web-cats/adopt_cat1.jpg";
 import Button from "../../components/UI/Button/Button";
+import {Link } from "react-router-dom";
 
 const Volunteer = props => {
    
@@ -32,9 +33,9 @@ const Volunteer = props => {
                         <p>And most importantly, LOVE the cats. Some cats might not be as adorable as others, we hope you can still be nice to them and stay patient.</p>
                         <p>Have a special talent such as photography, accounting, web design, marketing, or fundraising? We have lots of opportunities for people with different skills.</p>
                         <p>Fill out an application and our Volunteer Coordinator will be in touch soon to discuss. If you would like to volunteer with us, please complete the </p>
-                    <a href="https://secure.lglforms.com/form_engine/s/rwQeucie5SeXQh7qVoXVPQ">
-                        <Button disabled btnColor="Button-white">VOLUNTEER APPLICATION</Button>
-                    </a>
+                    <Link to ='/v_application' >
+                        <Button btnColor="Button-white">VOLUNTEER APPLICATION</Button>
+                    </Link>
                 </div>
                 <div className="Volunteer-img">
                     <Img src={AdoptImg} alt="cat image" imgType="Img-sizing" />
