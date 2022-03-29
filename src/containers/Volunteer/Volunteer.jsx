@@ -33,7 +33,7 @@ const Volunteer = props => {
                         <p>Have a special talent such as photography, accounting, web design, marketing, or fundraising? We have lots of opportunities for people with different skills.</p>
                         <p>Fill out an application and our Volunteer Coordinator will be in touch soon to discuss. If you would like to volunteer with us, please complete the </p>
                     <a href="https://secure.lglforms.com/form_engine/s/rwQeucie5SeXQh7qVoXVPQ">
-                        <Button btnColor="Button-white">VOLUNTEER APPLICATION</Button>
+                        <Button disabled btnColor="Button-white">VOLUNTEER APPLICATION</Button>
                     </a>
                 </div>
                 <div className="Volunteer-img">
