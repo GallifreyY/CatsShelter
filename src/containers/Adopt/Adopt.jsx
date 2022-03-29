@@ -6,7 +6,7 @@ import Section from "../../components/UI/Section/Section";
 import Button from "../../components/UI/Button/Button"
 import Img from "../../components/UI/Image/Img";
 import imgCat1 from "../../assets/imgs/web-cats/vol_cat1.jpg";
-import imgCat2 from "../../assets/imgs/web-cats/vol_cat2.jpg";
+import imgCat2 from "../../assets/imgs/web-cats/vol_cat2.jpeg";
 import imgCat3 from "../../assets/imgs/web-cats/vol_cat3.jpg";
 
 const Adopt = props => {
