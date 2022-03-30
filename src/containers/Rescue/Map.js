@@ -1,3 +1,4 @@
+import "./Rescue.css"
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "react-google-maps";
 import Geocode from "react-geocode";
@@ -265,7 +266,7 @@ class Map extends Component{
 						<div style={{ height: `100%` }} />
 					}
 				/>
-        <div>
+        <div className="words">
           <br></br>
           <br></br>
           <br></br>
@@ -274,7 +275,7 @@ class Map extends Component{
           <p>You can drag the map marker to autofill in the address form. Our volunteers will come as soon as possible!</p>
 
         </div>
-        				<div>
+        <div className="words">
 					<div className="form-group">
 						<label htmlFor="">City</label>
 						<input type="text" name="city" className="form-control" onChange={ this.onChange } value={ this.state.city }/>
@@ -300,10 +301,10 @@ class Map extends Component{
 						<input type="text" name="phoneNumber" className="form-control"/>
 					</div>
 					<p></p>
-					<button>Submit</button>
+					<button className="submit">Submit</button>
 				</div>
 
-			</div>
+		</div>
 		} else {
 			map = <div style={{height: this.props.height}} />
 		}
