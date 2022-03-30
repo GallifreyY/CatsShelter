@@ -49,6 +49,9 @@ class volunteerApplication extends Component {
                     <label for="age">Age: </label>
                     <input type="text" name="age" placeholder="age" />
                     <p></p>
+                    <label for="location">Location: </label>
+                    <input type="text" name="location" placeholder="location" />
+                    <p></p>
                     <button>Submit</button>
                 </form>
             </body>

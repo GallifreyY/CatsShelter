@@ -14,3 +14,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
 
+
+Note: This project is used for IT5007 course project. Please keep the Google API key private. Thank you.
+
+
+

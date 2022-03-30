@@ -49,6 +49,12 @@ class adoptionApplication extends Component {
                     <label for="age">Age: </label>
                     <input type="text" name="age" placeholder="age" />
                     <p></p>
+                    <label for="occupation">Occupation: </label>
+                    <input type="text" name="occupation" placeholder="occupation" />
+                    <p></p>
+                    <label for="cats">Cats ID: </label>
+                    <input type="text" name="id" placeholder="id" />
+                    <p></p>
                     <button>Submit</button>
                 </form>
             </body>
