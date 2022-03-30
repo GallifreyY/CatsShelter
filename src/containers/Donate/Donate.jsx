@@ -19,7 +19,7 @@ const Donate = props => {
                     <p>You can purchase items from Amazon and ship straight to the shelter. Thanks for your support.</p>
                 </div>
                 <div className="Donate-card-btn">
-                    <a href="https://www.amazon.com/gp/registry/wishlist/AA1MMN7XY0J5?ref_=cm_sw_em_r_z_g__wb&pldnSite=1">
+                    <a href="https://www.amazon.com/hz/wishlist/intro">
                         <Button btnColor="Button-blue">amazon wishlist</Button> 
                     </a>
                 </div>
@@ -29,7 +29,7 @@ const Donate = props => {
                     <Img src={paypalIcon} alt="amazon icon" />
                 </div>
                 <div className="Donate-card-text">
-                    <p>Not Suppoorted.</p>
+                    <p>Not supported yet. Coming soon...</p>
                 </div>
                 <div className="Donate-card-btn">
                     <Button disabled btnColor="Button-blue">paypal donation</Button>
@@ -40,12 +40,11 @@ const Donate = props => {
                     <Img src={agreementIcon} alt="amazon icon" />
                 </div>
                 <div className="Donate-card-text">
-                    <p>Consider a gift of stock, a rollover IRA, or set up a bequest for Cats Shelter! Email us for more information.</p>
                     <p>Mail your gift - gifts by check may be mailed to the address of our Shelter.</p>
-                    <p>Not Supported.</p>
+                    <p>Email us for more information.</p>
                 </div>
                 <div className="Donate-card-btn">
-                    <Button disabled btnColor="Button-blue">cats shelter</Button>
+                    <Button disabled btnColor="Button-blue">MAIL GIFTS</Button>
                 </div>
             </div>
 
