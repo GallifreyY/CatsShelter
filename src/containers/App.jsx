@@ -7,7 +7,7 @@ import Footer from "../components/Footer/Footer";
 import Home from "./Home/Home";
 import Volunteer from "./Volunteer/Volunteer";
 import Adopt from "./Adopt/Adopt";
-import WaitList from "./WaitList/WaitList";
+import Rescue from "./Rescue/Rescue";
 import Donate from "./Donate/Donate";
 import Animals from "./Animals/Animals";
 import volunteerApplication from "./Application/volunteerApplication"
@@ -23,7 +23,7 @@ const App = props => {
                 <Route path="/a_application" component={adoptionApplication} />
                 <Route path="/adopt" component={Adopt} />
                 <Route path="/v_application" component={volunteerApplication} />
-                <Route path="/waitList" component={WaitList} />
+                <Route path="/rescue" component={Rescue} />
                 <Route path="/donate" component={Donate} />
                 <Route path="/animals" component={Animals} />
             </Switch>
