@@ -8,6 +8,9 @@ const app = (
     <App />
   </BrowserRouter>
 )
+document.addEventListener("DOMContentLoaded", (e) => {
+  console.log({ DCL: e.timeStamp });
+});
 
 ReactDOM.render(app,
   document.getElementById('root')
