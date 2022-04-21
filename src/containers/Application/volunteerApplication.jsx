@@ -34,22 +34,22 @@ class volunteerApplication extends Component {
             <Section sectionType="Blue" displayType="Flex">
             <body>
                 <form className="container" onSubmit={this.handleFormSubmit}>
-                    <label for="name">Name: </label>
+                    <label>Name: </label>
                     <input type="text" name="name" placeholder="name" />
                     <p></p>
-                    <label for="number">Number: </label>
+                    <label>Number: </label>
                     <input type="text" name="number" placeholder="number" />
                     <p></p>
-                    <label for="gender">Gender: </label>
+                    <label>Gender: </label>
                     <input type="text" name="gender" placeholder="gender" />
                     <p></p>
-                    <label for="email">Email: </label>
+                    <label>Email: </label>
                     <input type="text" name="email" placeholder="email" />
                     <p></p>
-                    <label for="age">Age: </label>
+                    <label>Age: </label>
                     <input type="text" name="age" placeholder="age" />
                     <p></p>
-                    <label for="location">Location: </label>
+                    <label>Location: </label>
                     <input type="text" name="location" placeholder="location" />
                     <p></p>
                     <button>Submit</button>

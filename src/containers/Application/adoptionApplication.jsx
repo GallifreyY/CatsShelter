@@ -5,54 +5,104 @@ import "./Application.css";
 import Aux from "../../hoc/Auxiliary/Auxiliary";
 import Section from "../../components/UI/Section/Section";
 
+const dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
+function jsonDateReviver(key, value) {
+  if (dateRegex.test(value)) return new Date(value);
+  return value;
+}
+
+async function graphQLFetch(query, variables = {}) {
+  try {
+    const response = await fetch('http://172.30.192.1:5000/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({ query, variables })
+    });
+    const body = await response.text();
+    const result = JSON.parse(body, jsonDateReviver);
+
+    if (result.errors) {
+      const error = result.errors[0];
+      if (error.extensions.code == 'BAD_USER_INPUT') {
+        const details = error.extensions.exception.errors.join('\n ');
+        alert(`${error.message}:\n ${details}`);
+      } else {
+        alert(`${error.extensions.code}: ${error.message}`);
+      }
+    }
+    return result.data;
+  } catch (e) {
+    alert(`Error in sending data to server: ${e.message}`);
+  }
+}
+
 class adoptionApplication extends Component {  
     constructor(props) {
       super(props);
   
       this.state = {
-        newApplicants: {
           name: '',
           number:'',
           email: '',
           age: '',
           gender: '',
-        }
       }
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
-      this.handleClearForm = this.handleClearForm.bind(this);
+      this.createIssue = this.createIssue.bind(this);
     }
   
-    handleFormSubmit() {
-      // Form submission logic
+    handleFormSubmit(e) {
+      e.preventDefault();
+      const form = document.forms.issueAdd;
+      const issue = {
+        name: form.name.value, number: form.number.value, email: form.email.value, 
+        age: form.age.value, gender: form.gender.value
+      }
+      this.createIssue(issue);
+      form.name.value = ""; 
+      form.number.value = "";
+      form.email.value = "";
+      form.age.value = "";
+      form.gender.value = "";
     }
-    handleClearForm() {
-      // Reset the form
+    async createIssue(issue) {
+      const query = `mutation issueAdd($issue: IssueInputs!) {
+        issueAdd(issue: $issue) {
+          id
+        }
+      }`;
+  
+      const data = await graphQLFetch(query, { issue });
+      if (data) {
+        console.log(data);
+      }
     }
+
     render() {
       return (
         <Aux>
             <Section sectionType="Blue" displayType="Flex">
             <body>
-                <form className="container" onSubmit={this.handleFormSubmit}>
-                    <label for="name">Name: </label>
+                <form name="issueAdd" onSubmit={this.handleFormSubmit}>
+                    <label>Name: </label>
                     <input type="text" name="name" placeholder="name" />
                     <p></p>
-                    <label for="number">Number: </label>
+                    <label>Number: </label>
                     <input type="text" name="number" placeholder="number" />
                     <p></p>
-                    <label for="gender">Gender: </label>
+                    <label>Gender: </label>
                     <input type="text" name="gender" placeholder="gender" />
                     <p></p>
-                    <label for="email">Email: </label>
+                    <label>Email: </label>
                     <input type="text" name="email" placeholder="email" />
                     <p></p>
-                    <label for="age">Age: </label>
+                    <label>Age: </label>
                     <input type="text" name="age" placeholder="age" />
                     <p></p>
-                    <label for="occupation">Occupation: </label>
+                    <label>Occupation: </label>
                     <input type="text" name="occupation" placeholder="occupation" />
                     <p></p>
-                    <label for="cats">Cats ID: </label>
+                    <label>Cats ID: </label>
                     <input type="text" name="id" placeholder="id" />
                     <p></p>
                     <button>Submit</button>

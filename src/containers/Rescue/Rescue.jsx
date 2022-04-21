@@ -1,8 +1,6 @@
 import React from "react";
 import Map from "./Map";
 import {Component} from 'react'; 
-import Aux from "../../hoc/Auxiliary/Auxiliary";
-import Section from "../../components/UI/Section/Section";
 import "./Rescue.css";
 
 class Rescue extends Component {
