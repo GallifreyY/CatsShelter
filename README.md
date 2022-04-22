@@ -6,7 +6,7 @@ Note: To use the Google Maps for RESCUE page, you must get an API key. Follow ht
 
 ## Backend:
 
-### `mongo issuetracker scripts/init.mongo.js`
+### `mongo catshelter scripts/init.mongo.js`
 To initialize the schema.
 
 cd to the backend folder and run:

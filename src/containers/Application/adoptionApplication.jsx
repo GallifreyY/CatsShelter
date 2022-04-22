@@ -13,7 +13,7 @@ function jsonDateReviver(key, value) {
 
 async function graphQLFetch(query, variables = {}) {
   try {
-    const response = await fetch('http://172.30.192.1:5000/graphql', {
+    const response = await fetch('http://192.168.1.23:5000/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ query, variables })
@@ -48,31 +48,31 @@ class adoptionApplication extends Component {
           gender: '',
       }
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
-      this.createIssue = this.createIssue.bind(this);
+      this.createApplication = this.createApplication.bind(this);
     }
   
     handleFormSubmit(e) {
       e.preventDefault();
-      const form = document.forms.issueAdd;
-      const issue = {
+      const form = document.forms.applicationAdd;
+      const application = {
         name: form.name.value, number: form.number.value, email: form.email.value, 
         age: form.age.value, gender: form.gender.value
       }
-      this.createIssue(issue);
+      this.createApplication(application);
       form.name.value = ""; 
       form.number.value = "";
       form.email.value = "";
       form.age.value = "";
       form.gender.value = "";
     }
-    async createIssue(issue) {
-      const query = `mutation issueAdd($issue: IssueInputs!) {
-        issueAdd(issue: $issue) {
+    async createApplication(application) {
+      const query = `mutation applicationAdd($application: ApplicationInputs!) {
+        applicationAdd(application: $application) {
           id
         }
       }`;
   
-      const data = await graphQLFetch(query, { issue });
+      const data = await graphQLFetch(query, { application });
       if (data) {
         console.log(data);
       }
@@ -83,7 +83,7 @@ class adoptionApplication extends Component {
         <Aux>
             <Section sectionType="Blue" displayType="Flex">
             <body>
-                <form name="issueAdd" onSubmit={this.handleFormSubmit}>
+                <form name="applicationAdd" onSubmit={this.handleFormSubmit}>
                     <label>Name: </label>
                     <input type="text" name="name" placeholder="name" />
                     <p></p>
