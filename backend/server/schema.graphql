@@ -1,6 +1,6 @@
 scalar GraphQLDate
 
-type Issue {
+type Application {
   _id: ID!
   id: Int!
   name: String!
@@ -10,8 +10,8 @@ type Issue {
   age: String
 }
 
-"Toned down Issue, used as inputs, without server generated values."
-input IssueInputs {
+"Toned down Application, used as inputs, without server generated values."
+input ApplicationInputs {
   name: String!
   number: String!
   gender: String
@@ -23,11 +23,11 @@ input IssueInputs {
 
 type Query {
   about: String!
-  issueList: [Issue!]!
+  applicationList: [Application!]!
 }
 
 type Mutation {
   setAboutMessage(message: String!): String
-  issueAdd(issue: IssueInputs!): Issue!
+  applicationAdd(application: ApplicationInputs!): Application!
   addToBlacklist(nameInput: String!): String
 }

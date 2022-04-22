@@ -5,17 +5,17 @@ const { GraphQLScalarType } = require('graphql');
 const { Kind } = require('graphql/language');
 const { MongoClient } = require('mongodb');
 
-const url = 'mongodb://localhost/issuetracker';
+const url = 'mongodb://localhost/catshelter';
 
 // Atlas URL  - replace UUU with user, PPP with password, XXX with hostname
-// const url = 'mongodb+srv://UUU:PPP@cluster0-XXX.mongodb.net/issuetracker?retryWrites=true';
+// const url = 'mongodb+srv://UUU:PPP@cluster0-XXX.mongodb.net/applicationtracker?retryWrites=true';
 
 // mLab URL - replace UUU with user, PPP with password, XXX with hostname
-// const url = 'mongodb://UUU:PPP@XXX.mlab.com:33533/issuetracker';
+// const url = 'mongodb://UUU:PPP@XXX.mlab.com:33533/applicationtracker';
 
 let db;
 
-let aboutMessage = "Issue Tracker API v1.0";
+let aboutMessage = "Application Tracker API v1.0";
 
 const GraphQLDate = new GraphQLScalarType({
   name: 'GraphQLDate',
@@ -38,11 +38,11 @@ const GraphQLDate = new GraphQLScalarType({
 const resolvers = {
   Query: {
     about: () => aboutMessage,
-    issueList,
+    applicationList,
   },
   Mutation: {
     setAboutMessage,
-    issueAdd,
+    applicationAdd,
     addToBlacklist,
   },
   GraphQLDate,
@@ -57,9 +57,9 @@ function setAboutMessage(_, { message }) {
   return aboutMessage = message;
 }
 
-async function issueList() {
-  const issues = await db.collection('issues').find({}).toArray();
-  return issues;
+async function applicationList() {
+  const applications = await db.collection('applications').find({}).toArray();
+  return applications;
 }
 
 async function getNextSequence(name) {
@@ -71,12 +71,12 @@ async function getNextSequence(name) {
   return result.value.current;
 }
 
-function issueValidate(issue) {
+function applicationValidate(application) {
   const errors = [];
-  if (issue.name.length < 3) {
+  if (application.name.length < 3) {
     errors.push('Field "name" must be at least 3 characters long.');
   }
-  if ( !issue.number) {
+  if ( !application.number) {
     errors.push('Field "number" is required');
   }
   if (errors.length > 0) {
@@ -84,14 +84,14 @@ function issueValidate(issue) {
   }
 }
 
-async function issueAdd(_, { issue }) {
-  issueValidate(issue);
-  issue.id = await getNextSequence('issues');
+async function applicationAdd(_, { application }) {
+  applicationValidate(application);
+  application.id = await getNextSequence('applications');
 
-  const result = await db.collection('issues').insertOne(issue);
-  const savedIssue = await db.collection('issues')
+  const result = await db.collection('applications').insertOne(application);
+  const savedApplication = await db.collection('applications')
     .findOne({ _id: result.insertedId });
-  return savedIssue;
+  return savedApplication;
 }
 
 async function connectToDb() {
