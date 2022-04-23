@@ -8,6 +8,8 @@ type Application {
   gender: String
   email: String
   age: String
+  occupation:String
+  catsID:String!
 }
 
 "Toned down Application, used as inputs, without server generated values."
@@ -17,6 +19,8 @@ input ApplicationInputs {
   gender: String
   email: String
   age: String
+  occupation:String
+  catsID:String!
 }
 
 ##### Top level declarations
