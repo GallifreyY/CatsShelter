@@ -14,7 +14,7 @@ db.applications.remove({});
 const applicationsDB = [
   {
     id: 1, name: 'Keith', number: '12345678', email: '12345678@gmail.com',
-    age: 18, gender: 'male'
+    age: 18, gender: 'male',occupation:'doctor',catsID:'123'
   },
 ];
 

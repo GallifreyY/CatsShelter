@@ -77,7 +77,12 @@ function applicationValidate(application) {
     errors.push('Field "name" must be at least 3 characters long.');
   }
   if ( !application.number) {
-    errors.push('Field "number" is required');
+    errors.
+    push('Field "number" is required');
+  }
+  if ( !application.catsID) {
+    errors.
+    push('Cats ID" is required');
   }
   if (errors.length > 0) {
     throw new UserInputError('Invalid input(s)', { errors });

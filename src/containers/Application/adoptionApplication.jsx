@@ -13,7 +13,7 @@ function jsonDateReviver(key, value) {
 
 async function graphQLFetch(query, variables = {}) {
   try {
-    const response = await fetch('http://192.168.1.23:5000/graphql', {
+    const response = await fetch('http://172.23.204.22:5000/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ query, variables })
@@ -46,6 +46,8 @@ class adoptionApplication extends Component {
           email: '',
           age: '',
           gender: '',
+          occupation:'',
+          catsID:'',
       }
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
       this.createApplication = this.createApplication.bind(this);
@@ -56,7 +58,8 @@ class adoptionApplication extends Component {
       const form = document.forms.applicationAdd;
       const application = {
         name: form.name.value, number: form.number.value, email: form.email.value, 
-        age: form.age.value, gender: form.gender.value
+        age: form.age.value, gender: form.gender.value, occupation:form.occupation.value,
+        catsID:form.catsID.value
       }
       this.createApplication(application);
       form.name.value = ""; 
@@ -64,6 +67,8 @@ class adoptionApplication extends Component {
       form.email.value = "";
       form.age.value = "";
       form.gender.value = "";
+      form.occupation.value = "";
+      form.catsID.value = "";
     }
     async createApplication(application) {
       const query = `mutation applicationAdd($application: ApplicationInputs!) {
@@ -103,7 +108,7 @@ class adoptionApplication extends Component {
                     <input type="text" name="occupation" placeholder="occupation" />
                     <p></p>
                     <label>Cats ID: </label>
-                    <input type="text" name="id" placeholder="id" />
+                    <input type="text" name="catsID" placeholder="catsID" />
                     <p></p>
                     <button>Submit</button>
                 </form>
