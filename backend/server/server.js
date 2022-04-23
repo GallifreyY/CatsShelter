@@ -43,6 +43,7 @@ const resolvers = {
   Mutation: {
     setAboutMessage,
     applicationAdd,
+    volunteerAdd,
     addToBlacklist,
   },
   GraphQLDate,
@@ -95,6 +96,16 @@ async function applicationAdd(_, { application }) {
 
   const result = await db.collection('applications').insertOne(application);
   const savedApplication = await db.collection('applications')
+    .findOne({ _id: result.insertedId });
+  return savedApplication;
+}
+
+async function volunteerAdd(_, { application }) {
+  //applicationValidate(application);
+  application.id = await getNextSequence('volunteers');
+
+  const result = await db.collection('volunteers').insertOne(application);
+  const savedApplication = await db.collection('volunteers')
     .findOne({ _id: result.insertedId });
   return savedApplication;
 }
