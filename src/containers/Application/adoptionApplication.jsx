@@ -13,7 +13,7 @@ function jsonDateReviver(key, value) {
 
 async function graphQLFetch(query, variables = {}) {
   try {
-    const response = await fetch('http://172.23.204.22:5000/graphql', {
+    const response = await fetch('http://localhost:5000/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ query, variables })
@@ -23,7 +23,7 @@ async function graphQLFetch(query, variables = {}) {
 
     if (result.errors) {
       const error = result.errors[0];
-      if (error.extensions.code == 'BAD_USER_INPUT') {
+      if (error.extensions.code === 'BAD_USER_INPUT') {
         const details = error.extensions.exception.errors.join('\n ');
         alert(`${error.message}:\n ${details}`);
       } else {

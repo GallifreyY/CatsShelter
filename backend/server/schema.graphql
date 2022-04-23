@@ -12,6 +12,17 @@ type Application {
   catsID:String!
 }
 
+type volunteerApplication {
+  _id: ID!
+  id: Int!
+  name: String!
+  number: String!
+  gender: String
+  email: String
+  age: String
+  location: String!
+}
+
 "Toned down Application, used as inputs, without server generated values."
 input ApplicationInputs {
   name: String!
@@ -21,6 +32,15 @@ input ApplicationInputs {
   age: String
   occupation:String
   catsID:String!
+}
+
+input volunteerInputs {
+  name: String!
+  number: String!
+  gender: String
+  email: String
+  age: String
+  location: String!
 }
 
 ##### Top level declarations
@@ -33,5 +53,6 @@ type Query {
 type Mutation {
   setAboutMessage(message: String!): String
   applicationAdd(application: ApplicationInputs!): Application!
+  volunteerAdd(application: volunteerInputs!): volunteerApplication!
   addToBlacklist(nameInput: String!): String
 }
