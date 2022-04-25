@@ -6,7 +6,7 @@ import Autocomplete from 'react-google-autocomplete';
 import Aux from "../../hoc/Auxiliary/Auxiliary";
 import Section from "../../components/UI/Section/Section";
 
-Geocode.setApiKey( "AIzaSyCuHYnbjHaC72QJxul9dN_55J6rV6vIvKE" );
+Geocode.setApiKey( "xxxxxxx" );
 Geocode.enableDebug();
 
 const dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
@@ -375,7 +375,7 @@ class Map extends Component{
 		if( this.props.center.lat !== undefined ) {
 			map = <div>
 				<AsyncMap
-					googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCuHYnbjHaC72QJxul9dN_55J6rV6vIvKE&libraries=places`}
+					googleMapURL={`https://maps.googleapis.com/maps/api/js?key=xxxxxxx&libraries=places`}
 					loadingElement={
 						<div style={{ height: `100%` }} />
 					}
