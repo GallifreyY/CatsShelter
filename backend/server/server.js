@@ -39,11 +39,14 @@ const resolvers = {
   Query: {
     about: () => aboutMessage,
     applicationList,
+    markerList,
   },
   Mutation: {
     setAboutMessage,
     applicationAdd,
     volunteerAdd,
+    rescueAdd,
+    markerAdd,
     addToBlacklist,
   },
   GraphQLDate,
@@ -61,6 +64,11 @@ function setAboutMessage(_, { message }) {
 async function applicationList() {
   const applications = await db.collection('applications').find({}).toArray();
   return applications;
+}
+
+async function markerList() {
+  const markers = await db.collection('marker').find({}).toArray();
+  return markers;
 }
 
 async function getNextSequence(name) {
@@ -108,6 +116,26 @@ async function volunteerAdd(_, { application }) {
   const savedApplication = await db.collection('volunteers')
     .findOne({ _id: result.insertedId });
   return savedApplication;
+}
+
+async function rescueAdd(_, { rescue }) {
+  
+  rescue.id = await getNextSequence('rescue');
+
+  const result = await db.collection('rescue').insertOne(rescue);
+  const savedRescue = await db.collection('rescue')
+    .findOne({ _id: result.insertedId });
+  return savedRescue;
+}
+
+async function markerAdd(_, { marker }) {
+  
+  marker.id = await getNextSequence('marker');
+
+  const result = await db.collection('marker').insertOne(marker);
+  const savedMarker = await db.collection('marker')
+    .findOne({ _id: result.insertedId });
+  return savedMarker;
 }
 
 async function connectToDb() {
