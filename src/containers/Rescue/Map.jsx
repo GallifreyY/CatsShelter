@@ -6,7 +6,7 @@ import Autocomplete from 'react-google-autocomplete';
 import Aux from "../../hoc/Auxiliary/Auxiliary";
 import Section from "../../components/UI/Section/Section";
 
-Geocode.setApiKey( "xxxxxxx" );
+Geocode.setApiKey( "YOU_GOOGLE_KEY_HERE" );
 Geocode.enableDebug();
 
 const dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
@@ -270,6 +270,9 @@ class Map extends Component{
 		  address: form.address.value, name: form.name.value, phoneNumber:form.phoneNumber.value
 		}
 		this.createRescue(rescue);
+		if ( rescue.name != 0 && rescue.phoneNumber != 0 ) {
+			alert("New rescue location has been added!");
+		  }
 		form.city.value = ""; 
 		form.area.value = "";
 		form.avenue.value = "";
@@ -283,6 +286,8 @@ class Map extends Component{
 		this.createMarker(marker);
 		marker.lat = "";
 		marker.lng = "";
+
+		window.location.reload(false);
 	  }
 	
 	  async createRescue(rescue) {
@@ -375,7 +380,7 @@ class Map extends Component{
 		if( this.props.center.lat !== undefined ) {
 			map = <div>
 				<AsyncMap
-					googleMapURL={`https://maps.googleapis.com/maps/api/js?key=xxxxxxx&libraries=places`}
+					googleMapURL={`https://maps.googleapis.com/maps/api/js?key=YOU_GOOGLE_KEY_HERE&libraries=places`}
 					loadingElement={
 						<div style={{ height: `100%` }} />
 					}

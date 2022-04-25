@@ -97,6 +97,21 @@ function applicationValidate(application) {
     throw new UserInputError('Invalid input(s)', { errors });
   }
 }
+  
+  function rescueValidate(rescue) {
+    const errors = [];
+    if (rescue.name.length < 3) {
+      errors.push('Field "name" must be at least 3 characters long.');
+    }
+    if ( !rescue.phoneNumber) {
+      errors.
+      push('Phone number is required');
+    }
+    if (errors.length > 0) {
+      throw new UserInputError('Invalid input(s)', { errors });
+    }
+  
+}
 
 async function applicationAdd(_, { application }) {
   applicationValidate(application);
@@ -119,7 +134,7 @@ async function volunteerAdd(_, { application }) {
 }
 
 async function rescueAdd(_, { rescue }) {
-  
+  rescueValidate(rescue);
   rescue.id = await getNextSequence('rescue');
 
   const result = await db.collection('rescue').insertOne(rescue);
