@@ -39,20 +39,17 @@ const resolvers = {
   Query: {
     about: () => aboutMessage,
     applicationList,
+    markerList,
   },
   Mutation: {
     setAboutMessage,
     applicationAdd,
     volunteerAdd,
-    addToBlacklist,
+    rescueAdd,
+    markerAdd,
   },
   GraphQLDate,
 };
-
-async function addToBlacklist(_, {nameInput}) {
-
-  const result = await db.collection('blacklist').insertOne({name: nameInput});
-}
 
 function setAboutMessage(_, { message }) {
   return aboutMessage = message;
@@ -61,6 +58,11 @@ function setAboutMessage(_, { message }) {
 async function applicationList() {
   const applications = await db.collection('applications').find({}).toArray();
   return applications;
+}
+
+async function markerList() {
+  const markers = await db.collection('marker').find({}).toArray();
+  return markers;
 }
 
 async function getNextSequence(name) {
@@ -83,11 +85,44 @@ function applicationValidate(application) {
   }
   if ( !application.catsID) {
     errors.
-    push('Cats ID" is required');
+    push('Field "Cats ID" is required');
   }
   if (errors.length > 0) {
     throw new UserInputError('Invalid input(s)', { errors });
   }
+}
+
+function volunteerValidate(application) {
+  const errors = [];
+  if (application.name.length < 3) {
+    errors.push('Field "name" must be at least 3 characters long.');
+  }
+  if ( !application.number) {
+    errors.
+    push('Field "number" is required');
+  }
+  if ( !application.location) {
+    errors.
+    push('Field "location" is required');
+  }
+  if (errors.length > 0) {
+    throw new UserInputError('Invalid input(s)', { errors });
+  }
+}
+  
+function rescueValidate(rescue) {
+    const errors = [];
+    if (rescue.name.length < 3) {
+      errors.push('Field "name" must be at least 3 characters long.');
+    }
+    if ( !rescue.phoneNumber) {
+      errors.
+      push('Phone number is required');
+    }
+    if (errors.length > 0) {
+      throw new UserInputError('Invalid input(s)', { errors });
+    }
+  
 }
 
 async function applicationAdd(_, { application }) {
@@ -101,13 +136,33 @@ async function applicationAdd(_, { application }) {
 }
 
 async function volunteerAdd(_, { application }) {
-  //applicationValidate(application);
+  volunteerValidate(application);
   application.id = await getNextSequence('volunteers');
 
   const result = await db.collection('volunteers').insertOne(application);
   const savedApplication = await db.collection('volunteers')
     .findOne({ _id: result.insertedId });
   return savedApplication;
+}
+
+async function rescueAdd(_, { rescue }) {
+  applicationValidate(rescue);
+  rescue.id = await getNextSequence('rescue');
+
+  const result = await db.collection('rescue').insertOne(rescue);
+  const savedRescue = await db.collection('rescue')
+    .findOne({ _id: result.insertedId });
+  return savedRescue;
+}
+
+async function markerAdd(_, { marker }) {
+  
+  marker.id = await getNextSequence('marker');
+
+  const result = await db.collection('marker').insertOne(marker);
+  const savedMarker = await db.collection('marker')
+    .findOne({ _id: result.insertedId });
+  return savedMarker;
 }
 
 async function connectToDb() {

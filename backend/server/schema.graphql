@@ -23,6 +23,24 @@ type volunteerApplication {
   location: String!
 }
 
+type Rescue {
+  _id: ID!
+  id: Int!
+  city: String
+  area: String
+  avenue: String
+  address: String
+  name: String
+  phoneNumber: String
+}
+
+type Marker {
+  _id: ID!
+  id: Int!
+  lat: String
+  lng: String
+}
+
 "Toned down Application, used as inputs, without server generated values."
 input ApplicationInputs {
   name: String!
@@ -43,16 +61,32 @@ input volunteerInputs {
   location: String!
 }
 
+input RescueInputs {
+  city: String
+  area: String
+  avenue: String
+  address: String
+  name: String
+  phoneNumber: String
+}
+
+input MarkerInputs {
+  lat: String
+  lng: String
+}
+
 ##### Top level declarations
 
 type Query {
   about: String!
   applicationList: [Application!]!
+  markerList: [Marker!]!
 }
 
 type Mutation {
   setAboutMessage(message: String!): String
   applicationAdd(application: ApplicationInputs!): Application!
   volunteerAdd(application: volunteerInputs!): volunteerApplication!
-  addToBlacklist(nameInput: String!): String
+  rescueAdd(rescue:RescueInputs!):Rescue!
+  markerAdd(marker:MarkerInputs!):Marker!
 }

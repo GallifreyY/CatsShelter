@@ -36,6 +36,7 @@ async function graphQLFetch(query, variables = {}) {
   }
 }
 
+
 class adoptionApplication extends Component {  
     constructor(props) {
       super(props);
@@ -62,6 +63,12 @@ class adoptionApplication extends Component {
         catsID:form.catsID.value
       }
       this.createApplication(application);
+
+      if ( application.number != 0 && application.name != 0 && application.catsID!=0) {
+        alert("Your application has been submitted!");
+      }
+      
+
       form.name.value = ""; 
       form.number.value = "";
       form.email.value = "";
@@ -69,6 +76,9 @@ class adoptionApplication extends Component {
       form.gender.value = "";
       form.occupation.value = "";
       form.catsID.value = "";
+
+      
+      
     }
     async createApplication(application) {
       const query = `mutation applicationAdd($application: ApplicationInputs!) {
