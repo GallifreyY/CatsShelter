@@ -403,6 +403,7 @@ class Map extends Component{
         <div className="words">
 		<Aux>
             <Section sectionType="Blue" displayType="Flex">
+				<body>
 					<form name="rescueAdd" onSubmit={this.handleFormSubmit}>
 						<label htmlFor="">City</label>
 						<input type="text" name="city" className="form-control" onChange={ this.onChange } value={ this.state.city }/>
@@ -426,6 +427,7 @@ class Map extends Component{
 					<p></p>
 					<button className="submit">Submit</button>
 				</form>
+				</body>
 				</Section>
         </Aux>
 				</div>

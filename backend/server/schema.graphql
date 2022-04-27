@@ -89,5 +89,4 @@ type Mutation {
   volunteerAdd(application: volunteerInputs!): volunteerApplication!
   rescueAdd(rescue:RescueInputs!):Rescue!
   markerAdd(marker:MarkerInputs!):Marker!
-  addToBlacklist(nameInput: String!): String
 }

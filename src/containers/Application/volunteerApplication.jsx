@@ -58,7 +58,7 @@ class volunteerApplication extends Component {
         age: form.age.value, gender: form.gender.value, location: form.location.value
       };
       this.createApplication(application);
-      if ( application.number != 0 && application.name != 0 && application.catsID!=0) {
+      if ( application.number != 0 && application.name != 0 && application.location!=0) {
         alert("Your application has been submitted!");
       }
       form.name.value = ""; 
